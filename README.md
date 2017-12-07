@@ -1,4 +1,4 @@
-# aiopool
+# AsyncPool
 
 Asyncio coroutine worker pool. No more juggling bounded semaphores and annoying timeouts, and allows you to run through millions of pieces of data efficiently. 
 
