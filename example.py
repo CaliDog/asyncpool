@@ -1,12 +1,3 @@
-# aiopool
-
-Asyncio coroutine worker pool. No more juggling bounded semaphores and annoying timeouts, and allows you to run through millions of pieces of data efficiently. 
-
-Adapted from the awesome worker pool found at https://gist.github.com/thehesiod/7081ab165b9a0d4de2e07d321cc2391d
-
-# Example Usage
-
-```
 import asyncpool
 import logging
 import asyncio
@@ -24,6 +15,7 @@ async def result_reader(queue):
         print("Got value! -> {}".format(value))
 
 async def run():
+
     result_queue = asyncio.Queue()
 
     reader_future = asyncio.ensure_future(result_reader(result_queue), loop=loop)
@@ -42,5 +34,3 @@ async def run():
 loop = asyncio.get_event_loop()
 
 loop.run_until_complete(run())
-
-```
