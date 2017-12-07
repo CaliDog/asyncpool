@@ -6,7 +6,7 @@ Adapted from the awesome worker pool found at https://gist.github.com/thehesiod/
 
 # Example Usage
 
-```
+```python
 import asyncpool
 import logging
 import asyncio
