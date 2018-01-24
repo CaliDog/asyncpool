@@ -4,6 +4,12 @@ Asyncio coroutine worker pool. No more juggling bounded semaphores and annoying 
 
 Adapted from the awesome worker pool found at https://gist.github.com/thehesiod/7081ab165b9a0d4de2e07d321cc2391d
 
+# Installation
+
+```
+pip install asyncpool
+```
+
 # Example Usage
 
 ```python
