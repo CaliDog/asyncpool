@@ -1,12 +1,15 @@
 import asyncio
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
+
 
 def utc_now():
     # utcnow returns a naive datetime, so we have to set the timezone manually <sigh>
     return datetime.utcnow().replace(tzinfo=timezone.utc)
 
+
 class Terminator:
     pass
+
 
 class AsyncPool:
     def __init__(self, loop, num_workers: int, name: str, logger, worker_co, load_factor: int = 1,
@@ -41,7 +44,7 @@ class AsyncPool:
         self._queue = asyncio.Queue(num_workers * load_factor)
         self._workers = None
         self._exceptions = False
-        self._job_accept_duration = job_accept_duration
+        self._job_accept_duration = timedelta(seconds=job_accept_duration) if job_accept_duration is not None else None
         self._first_push_dt = None
         self._max_task_time = max_task_time
         self._return_futures = return_futures

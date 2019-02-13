@@ -1,6 +1,4 @@
 from setuptools import setup
-from setuptools.command.test import test as TestCommand
-import os
 import sys
 
 py_version = sys.version_info[:2]
@@ -13,6 +11,14 @@ AsyncPool is a asyncio-based coroutine worker pool, intended to process through 
 efficiently and with explicit timeouts.
 """
 
+
+def my_test_suite():
+    import asynctest
+    test_loader = asynctest.TestLoader()
+    test_suite = test_loader.discover('tests')
+    return test_suite
+
+
 setup(
     name='asyncpool',
     version='1.0',
@@ -23,8 +29,8 @@ setup(
     long_description=long_description,
     packages=['asyncpool'],
     include_package_data=True,
-    license = "MIT",
-    classifiers = [
+    license="MIT",
+    classifiers=[
         "License :: OSI Approved :: MIT License",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Software Development :: Testing",
@@ -35,4 +41,5 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
     ],
+    test_suite='setup.my_test_suite',
 )
