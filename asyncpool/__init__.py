@@ -44,7 +44,7 @@ class AsyncPool:
         self._queue = asyncio.Queue(num_workers * load_factor)
         self._workers = None
         self._exceptions = False
-        self._job_accept_duration = timedelta(seconds=job_accept_duration)
+        self._job_accept_duration = timedelta(seconds=job_accept_duration) if job_accept_duration is not None else None
         self._first_push_dt = None
         self._max_task_time = max_task_time
         self._return_futures = return_futures
