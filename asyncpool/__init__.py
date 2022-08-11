@@ -2,8 +2,7 @@ import asyncio
 from datetime import datetime, timezone
 
 def utc_now():
-    # utcnow returns a naive datetime, so we have to set the timezone manually <sigh>
-    return datetime.utcnow().replace(tzinfo=timezone.utc)
+    return datetime.now(tz=timezone.utc)
 
 class Terminator:
     pass
